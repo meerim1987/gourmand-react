@@ -6,9 +6,9 @@ Every recipe has a lightbox of the images he/she can see them in close.
 On homepage there is carousel of some most popular recipes, also it has recipes sorted by categories for better UX. Further homepage has the latest recipe posted, followed by the random ones.    
 User has a chance to get subscribed and receive recipes to his/her email (behaviour is simulated).  
 
-Click [DEMO](https://meerim1987.github.io/kids-reward-application/?target=_blank) to see the project in live.  
+DEMO will be available soon!
 To be able to post a recipe and to comment on others recipes you can use **credentials of some users** provided:  OR 
-follow the link to [SIGN UP](https://meerim1987.github.io/kids-reward-application/?target=_blank) in App. 
+follow the link to SIGN UP in App. 
 
 
 **Technical features:**
