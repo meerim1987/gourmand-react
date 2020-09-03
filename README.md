@@ -7,7 +7,8 @@ Every recipe has a lightbox of the images so that user can see them in close.
 On homepage there is carousel of some most popular recipes, also it has recipes sorted by categories for better UX. Further homepage has the latest recipe posted, followed by the random ones.    
 User has a chance to get subscribed and receive recipes to his/her email (behaviour is simulated).  
 
-To view **[DEMO](https://moboskanova.me/) in live**
+Click **[DEMO](https://moboskanova.me/)** to see the project in **live**
+
 To be able to post a recipe and to comment on other recipes you can use **credentials of some users** provided: 
 
 1.	Melania, pass: melaniaKl!2
