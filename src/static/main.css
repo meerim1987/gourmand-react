@@ -2452,12 +2452,12 @@ main {
         opacity: 0.8;
     }
 
-    .img-wrap, .img-wrap-temp {
+    .img-wrap {
         display: flex;
         justify-content: center;
         align-items: center;
         position: relative;
-        min-height: 370px;
+        min-height: auto;
         opacity: 1;
         transition: 5s opacity ease-in-out;
     }
