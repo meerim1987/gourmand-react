@@ -2361,7 +2361,7 @@ main {
     }
 
     .gallery-content > li {
-        flex: 50%;
+        flex: 0 1 50%;
         max-width: 370px;
     }
 
