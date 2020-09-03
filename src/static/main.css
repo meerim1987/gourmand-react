@@ -2834,6 +2834,12 @@ main {
 
     .top-menu {
         flex-direction: column;
+        margin-bottom: 0;
+    }
+
+    .top-menu-container {
+        display: flex;
+        align-self: flex-end;
     }
 
     .username {
