@@ -1087,6 +1087,7 @@ h1.entry-title {
     color: #444;
     transition: 0.2s ease all;
     margin: 15px 0 0;
+    -webkit-appearance: none;
  }
 
   input[type="text"]::placeholder, input[type="email"]::placeholder, input[type="password"]::placeholder, textarea::placeholder {
