@@ -1424,7 +1424,7 @@ footer {
 }
 
 .comments .commentslist > li {
-    margin-bottom: 44px;
+    margin-bottom: 31px;
     position: relative;
     border-bottom: 1px solid #EEEEEE;
     line-height: 1.8;
@@ -1473,6 +1473,10 @@ footer {
 
 .comment-body {
     margin-top: 8px;
+}
+
+.comment-body > p {
+    margin-bottom: 21px;
 }
 
 .comment-respond {
