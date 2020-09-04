@@ -28,7 +28,7 @@ export const About = () => (
           developing this project. I fell in love with React JS as it seemed to me intuitive and very flexible library.
         </p>
         <p>
-          To learn more about the <a href="https://github.com/meerim1987" 
+          To learn more about the <a href="https://github.com/meerim1987/gourmand-react" 
               className="link-github"
               target="_blank"
               title="Link to Gourmand">Gourmand</a> project from inside and see its code and also of other projects, please visit my{' '}
