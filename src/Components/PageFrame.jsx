@@ -125,7 +125,7 @@ export const PageFrame = (props) => {
             ))}
           </ul>
           <div className="site-info">
-            <span className="copyright">Copyright © 2019 Gourmand</span>
+            <span className="copyright">Copyright © 2020 Gourmand</span>
           </div>
         </div>
       </footer>
