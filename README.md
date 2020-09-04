@@ -1,5 +1,5 @@
 
-Gourmand is a culinary project where user has a chance to navigate and see other people's recipes with photos. 
+**Gourmand** is a culinary project where user has a chance to navigate and see other people's recipes with photos. 
 Also an authenticated user can post his own recipe with photos and has a chance to comment on other people's recipes.
 Every recipe has ingredients and directions any user can see on the recipe page and follow step by step or can also line through any ingredient after adding it while cooking.  
 
