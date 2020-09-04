@@ -542,6 +542,10 @@ figcaption .post-title {
     line-height: 1;
 }
 
+.recipe-page .post-title {
+    margin-top:10px;
+}
+
 .post-title {
     font-size: 26px;
     margin: 0 0 15px;

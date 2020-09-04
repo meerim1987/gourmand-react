@@ -45,7 +45,7 @@ const RecipePage = (props) => {
                     <img width="100%" src={recipeData.photos.length && recipeData.photos[0].photo} />
                   </a>
                 </div>
-                <section className="post-body">
+                <section className="post-body recipe-page">
                   <h1 className="post-title">
                     <a href="javascript:" title={recipeData.title} rel="bookmark">
                       {recipeData.title}
