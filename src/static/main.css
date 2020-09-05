@@ -2811,10 +2811,14 @@ input[type="button"].loadMore-button {
         margin-bottom: 20px;
     }
     .prev-arrow {
-        left: -71px;
+        left: -53px;
     }
     .next-arrow {
-        right: -71px;
+        right: -53px;
+    }
+
+    .prev-arrow, .next-arrow {
+        width: 40px;
     }
 }
 
@@ -2920,5 +2924,40 @@ input[type="button"].loadMore-button {
     main {
         padding-left: 20px;
         padding-right: 20px;
+    }
+
+    .directions ol>li {
+        min-height: 32px;
+        margin: 0 0 10px;
+    }
+
+    .modal-box-content {
+        width: 70%;
+    }
+
+    .category-description-wrap>p {
+        margin: 0 0 30px;
+    }
+
+    .comment-respond h3 {
+        margin-top: 50px;
+        font-size: 23px;
+    }
+
+    .comment-respond .comment-respond-title {
+        margin-top: 30px;
+    }
+
+    .commentslist .comment-area {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .comment-wrap {
+        text-align: center;
+    }
+
+    .avatar {
+        margin-right: 0;
     }
 }
