@@ -1,39 +1,40 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Loader } from './Loader';
-import { Redirect } from 'react-router-dom';
+
 import { useFetch } from '../utils/useFetch';
 import { SIGN_OUT } from '../constants/url';
+import { AuthContext } from '../Application';
+import { useHistory } from 'react-router';
 
 const SignOut = () => {
-  const [redirect, setRedirect] = useState(false);
-  const { data: content } = useFetch(SIGN_OUT);
-
+  const { dispatch, userData } = useContext(AuthContext);
+  const { data, error } = useFetch(SIGN_OUT, !userData.isLoggedIn);
+  const history = useHistory();
+  
   useEffect(() => {
-    if (!content) {
+    if(!data && !error) {
       return;
     }
-    try {
-      if (content.success) {
-        sessionStorage.removeItem('isLoggedIn');
-        sessionStorage.removeItem('name');
-        sessionStorage.removeItem('prevUrl');
-        setRedirect(true);
-        window.toaster.addMessage('Signed off!', 'info');
-      } else {
-        window.toaster.addMessage(content.message, 'error');
-      }
-    } catch (e) {
-      console.error(e);
+
+    if(error) {
       window.toaster.addMessage('Server returned unexpected response...', 'error');
     }
-  }, [content]);
 
-  return (
-    <div>
-      {redirect && <Redirect to="/" />}
-      <Loader />
-    </div>
-  );
+    if(data.error) {
+      window.toaster.addMessage(data.error, 'error');
+    }
+
+    if(data.success) {
+        // Calls the Setter of useReducer and updates the state of user
+      dispatch({type: 'LOGOUT'});
+      window.toaster.addMessage('Signed off!', 'info');
+    }
+
+    history.push('/');
+    
+  }, [data]); 
+
+  return (<div><Loader /></div>)
 };
 
 export default SignOut;

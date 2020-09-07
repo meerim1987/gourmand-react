@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { useHistory } from 'react-router';
 import { useFetch } from '../utils/useFetch';
 import { LOGIN } from '../constants/url';
 import { PARAM_EMAIL, PARAM_PASSWORD, replaceParams } from '../constants/routes';
+import { AuthContext } from '../Application';
 
 const initForms = {
   userName: '',
@@ -15,9 +16,11 @@ const initFormErrors = {
 };
 
 const SignIn = () => {
+  
   const [fields, setFields] = useState({ ...initForms });
   const [errors, setErrors] = useState({ ...initFormErrors });
   const history = useHistory();
+  const { dispatch } = useContext(AuthContext);
 
   const { data: content, get } = useFetch(
     replaceParams(
@@ -35,12 +38,15 @@ const SignIn = () => {
     if (content === null) return;
 
     if (content.success) {
-      sessionStorage.setItem('isLoggedIn', true);
+      // Calls the Setter of useReducer and updates the state of user
+      dispatch({
+        type: "LOGIN",
+        fullName: content.fullName
+      })
       reset();
       const fullName = content.fullName;
       window.toaster.addMessage('Welcome, ' + fullName + '!', 'info');
-      sessionStorage.setItem('name', fullName);
-
+     
       // Redirect to previous page or to homepage
       if (sessionStorage.getItem('prevUrl')) {
         history.push(sessionStorage.getItem('prevUrl'));

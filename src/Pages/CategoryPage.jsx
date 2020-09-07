@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { PageFrame } from '../Components/PageFrame';
 import { Loader } from '../Components/Loader';
 import { Categories } from '../constants/data';
@@ -9,7 +9,8 @@ import { SubscribeUser } from '../Components/SubscribeUser';
 import { SubscribeNotUser } from '../Components/SubscribeNotUser';
 import { useFetch } from '../utils/useFetch';
 import { CATEGORY, PARAM_CATEGORY, replaceParams } from '../constants/routes';
-import { CATEGORY_INFO, getUrl } from '../constants/url';
+import { CATEGORY_INFO } from '../constants/url';
+import { AuthContext } from '../Application';
 
 let options = Object.keys(Categories).map((ctg) => ({
   value: ctg,
@@ -41,6 +42,7 @@ const CategoryPage = (props) => {
   const { data: categoryData, fetching } = useFetch(
     validCategory ? replaceParams(CATEGORY_INFO, new Map([[PARAM_CATEGORY, ctgTitle]])) : null
   );
+  const {userData} = useContext(AuthContext);
 
   return (
     <PageFrame>
@@ -82,7 +84,7 @@ const CategoryPage = (props) => {
             )}
           </div>
           <div className="column-content-ctgs">
-            {sessionStorage.getItem('isLoggedIn') ? <SubscribeUser /> : <SubscribeNotUser />}
+            {userData.isLoggedIn ? <SubscribeUser /> : <SubscribeNotUser />}
             <CloudTag />
           </div>
         </React.Fragment>

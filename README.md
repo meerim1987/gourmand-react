@@ -24,6 +24,7 @@ follow the link to **[SIGN UP](https://moboskanova.me/sign-up)** in App.
 * React 16
 * React hooks
 * Custom hooks such as useAuth and useFetch
+* User authentication implemented with Context provider and useReducer hook
 * ES6
 * Functional/Class components
 * React carousel

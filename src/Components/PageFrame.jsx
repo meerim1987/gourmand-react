@@ -1,12 +1,15 @@
-import React, { useState, useLayoutEffect, useRef } from 'react';
+import React, { useState, useLayoutEffect, useRef, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { MenuItems } from '../constants/data';
 import { FooterItems } from '../constants/data';
+import { AuthContext } from '../Application';
 
 export const PageFrame = (props) => {
   let [stickyEnabled, setStickyEnabled] = useState(false);
   const myMenuBar = useRef();
   const myMainNavbarMenu = useRef();
+  
+  const {userData} = useContext(AuthContext);
 
   useLayoutEffect(() => {
     const menuBarHeight = myMenuBar.current.clientHeight;
@@ -47,7 +50,7 @@ export const PageFrame = (props) => {
                   <li className="about-menu-item">
                     <Link to="/about">About</Link>
                   </li>
-                  {sessionStorage.getItem('isLoggedIn') ? (
+                  {userData?.isLoggedIn ? (
                     <li className="author-links">
                       <Link to={'/sign-out'}>Sign Out</Link>
                     </li>
@@ -57,7 +60,7 @@ export const PageFrame = (props) => {
                     </li>
                   )}
                   <li className="username">
-                    {sessionStorage.getItem('name') ? `Hi, ${sessionStorage.getItem('name')}` : ''}
+                    {userData?.user && `Hi, ${userData.user}` }
                   </li>
                 </ul>
               </div>
@@ -102,7 +105,7 @@ export const PageFrame = (props) => {
                         <Link to={el.url}>{el.label}</Link>
                       </li>
                     ))}
-                    {!sessionStorage.getItem('isLoggedIn') && (
+                    {!userData.isLoggedIn && (
                       <li title="SignUp">
                         <Link to={'/sign-up'}>Sign Up</Link>
                       </li>

@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useContext, useEffect } from 'react';
 import { PageFrame } from '../Components/PageFrame';
 import { Link } from 'react-router-dom';
 import {Slideshow} from '../Components/Slideshow';
@@ -12,9 +12,11 @@ import { MenuCategories_short } from '../constants/data';
 import { LatestPost } from '../Components/ProductsList';
 import { Loader } from '../Components/Loader';
 import { replaceParams, CATEGORY, PARAM_CATEGORY } from '../constants/routes';
+import { AuthContext } from '../Application';
 
 export const IndexPage = () => {
   const latestProdData = useFetch(LATEST_RECIPE);
+  const {userData} = useContext(AuthContext);
 
   return (
     <PageFrame>
@@ -59,7 +61,7 @@ export const IndexPage = () => {
               )}
               {latestProdData.error && <div>ERROR!</div>}
             </Fragment>
-            {sessionStorage.getItem('isLoggedIn') ? <SubscribeUser /> : <SubscribeNotUser />}
+            {userData.isLoggedIn ? <SubscribeUser /> : <SubscribeNotUser />}
           </aside>
         </div>
       </div>

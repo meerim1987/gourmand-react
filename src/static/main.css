@@ -2766,6 +2766,13 @@ input[type="button"].loadMore-button {
         padding: 4px 0;
         min-height: 60px;
     }
+    .flip-box {
+        height: 407px;
+    }
+
+    .flip-box-user {
+        height: 283px;
+    }
 }
 
 @media (max-width: 765px) {
@@ -2959,5 +2966,13 @@ input[type="button"].loadMore-button {
 
     .avatar {
         margin-right: 0;
+    }
+
+    .flip-box {
+        height: 471px !important;
+    }
+
+    .flip-box-user {
+        height: 340px !important;
     }
 }
