@@ -92,5 +92,5 @@ export const PersonalData = {
   summary: 'I am Meerim Oboskanova. I love to code, different food, but most of all life  ',
   linkedIn: 'https://www.linkedin.com/in/meerim-oboskanova-ab59769/',
   occupation:
-    'Frontend sofware developer and the culinary amateur.',
+    'Frontend software engineer and the culinary amateur.',
 };

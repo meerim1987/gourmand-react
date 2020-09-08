@@ -1,6 +1,5 @@
 import React, { Suspense, lazy, useReducer } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-
 import { IndexPage } from './Pages/IndexPage';
 const SignIn = lazy(() => import('./Pages/SignInPage'));
 import RecipePost from './Pages/RecipePostPage';
