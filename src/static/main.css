@@ -1526,6 +1526,10 @@ ul.footer-menu {
     transform: translate(-50%, -40%);
 }
 
+.comment-respond .article-container {
+    width: 100%;
+}
+
 .avatar {
     border-radius: 50%;
     margin-right: 28px;
