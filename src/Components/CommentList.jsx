@@ -77,7 +77,6 @@ export const CommentList = ({ newComment, recipeId }) => {
 
 
   const myRef = useRef();
-
   // Lazy load of comments with Intersection observer
   const intersectionCallback = async(entries, fn) => {
     if (entries[0].isIntersecting) {   
