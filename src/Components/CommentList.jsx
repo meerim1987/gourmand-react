@@ -66,12 +66,14 @@ export const CommentList = ({ newComment, recipeId }) => {
   // Anchor link to comments field
   useEffect(() => {
     if (hash) {
-        const targetElem = document.getElementById(hash.replace('#', ''));
-        if(targetElem) {
-          targetElem.scrollIntoView({
-            behavior: 'smooth'
-          });
-        }       
+        setTimeout(() => {
+          const targetElem = document.getElementById(hash.replace('#', ''));
+          if(targetElem) {
+            targetElem.scrollIntoView({
+              behavior: 'smooth'
+            });
+          }   
+        });   
     }
   }, []);
 
