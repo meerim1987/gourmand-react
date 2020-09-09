@@ -33,7 +33,7 @@ export const RecipeTile = ({ data }) => {
               </time>
             </span>
             <span className="comments-link">
-              <a href="javascript:">{data.commentsCount > 1 ? `${data.commentsCount} Comments` : `${data.commentsCount} Comment`}</a>
+              <Link to={`${recipeLink}/#comments-field`}>{data.commentsCount > 1 ? `${data.commentsCount} Comments` : `${data.commentsCount} Comment`}</Link>
             </span>
           </div>
           <div className="post-content">

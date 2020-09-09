@@ -29,7 +29,7 @@ follow the link to **[SIGN UP](https://moboskanova.me/sign-up)** in App.
 * Functional/Class components
 * React carousel
 * Code splitting with React lazy
-* Lazy loading for products in listing with Intersection observer
+* Lazy loading for products listing and comments with Intersection observer
 * App is totally responsive
 
 

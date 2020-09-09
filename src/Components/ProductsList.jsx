@@ -9,7 +9,6 @@ const DESCRIPTION_MAX_LENGTH = 232;
 
 export const LatestPost = ({ data, fetching, error }) => {
   const recipeLink = data ? replaceParams(RECIPE, new Map([[PARAM_ID, data.recipeId]])) : null;
-
   return (
     <Fragment>
       {data && !error && !data.error && (
@@ -42,7 +41,7 @@ export const LatestPost = ({ data, fetching, error }) => {
                   </time>
                 </span>
                 <span className="comments-link">
-                  <Link to={'/recipe/' + data.recipeId} title={data.commentsCount}>
+                  <Link to={`/recipe/${data.recipeId}/#comments-field`} title={data.commentsCount}>
                     {data.commentsCount > 1 ? `${data.commentsCount} Comments` : `${data.commentsCount} Comment`}
                   </Link>
                 </span>

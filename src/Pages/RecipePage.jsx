@@ -15,7 +15,6 @@ import { RECIPE } from '../constants/url';
 const RecipePage = (props) => {
   const [ticked, setTick] = useState([]);
   const recipeId = props.match.params.id;
-
   const { data: recipeData, error, fetching } = useFetch(replaceParams(RECIPE, new Map([[PARAM_ID, recipeId]])));
 
   useEffect(() => {

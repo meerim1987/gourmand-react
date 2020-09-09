@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Loader } from './Loader';
 import { COMMENT_LIST, getUrl } from '../constants/url';
 import { PARAM_COUNT, PARAM_FIRST, PARAM_ID } from '../constants/routes';
+import { useLocation } from 'react-router';
 
 const COMMENTS_COUNT_ON_PAGE = 3;
 const STATE = {
@@ -39,6 +40,7 @@ export const CommentList = ({ newComment, recipeId }) => {
   let [offset, setOffset] = useState(0);
   let [state, setState] = useState(STATE.LOADING);
   let [count, setCount] = useState(0);
+  const {hash} = useLocation();
 
   const getList = async () => {
     setState(STATE.LOADING);
@@ -61,10 +63,45 @@ export const CommentList = ({ newComment, recipeId }) => {
     setCount(data.count);
   };
 
+  // Anchor link to comments field
   useEffect(() => {
-    (async () => {
-      await getList();
-    })();
+    if (hash) {
+        const targetElem = document.getElementById(hash.replace('#', ''));
+        if(targetElem) {
+          targetElem.scrollIntoView({
+            behavior: 'smooth'
+          });
+        }       
+    }
+  }, []);
+
+
+  const myRef = useRef();
+
+  // Lazy load of comments with Intersection observer
+  const intersectionCallback = async(entries, fn) => {
+    if (entries[0].isIntersecting) {   
+        const targetElem = document.getElementById('comments-field');
+        targetElem.scrollIntoView({
+          behavior: 'smooth'
+        });
+        await getList();
+        fn();    
+    }
+  };
+
+  useEffect(() => {
+    const options = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 1.0,
+    };
+    const target = myRef.current;
+    const obs = new IntersectionObserver(
+      (entries) => intersectionCallback(entries, () => obs.unobserve(target)), 
+      options
+    );
+    obs.observe(target);
   }, []);
 
   useEffect(() => {
@@ -73,8 +110,8 @@ export const CommentList = ({ newComment, recipeId }) => {
   }, [newComment]);
 
   return (
-    <section className="comments">
-      <h3>{count} Comments</h3>
+    <section className="comments" id="comments-field">
+      <h3 ref={myRef}>{count} Comments</h3>
       <ol className="commentslist">
         {list.map((el, index) => {
           return <CommentItem comment={el} key={index} />;
