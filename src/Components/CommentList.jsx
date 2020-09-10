@@ -73,7 +73,7 @@ export const CommentList = ({ newComment, recipeId }) => {
               behavior: 'smooth'
             });
           }   
-        });   
+        }, 300);   
     }
   }, []);
 

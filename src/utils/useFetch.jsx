@@ -22,6 +22,7 @@ export const useFetch = (uri, lazy = false, options = undefined) => {
       setData(data);
       setFetching(false);
       setError(null);
+      
     } catch (error) {
       setData(null);
       setFetching(false);
