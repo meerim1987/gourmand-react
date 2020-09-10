@@ -2484,12 +2484,10 @@ input[type="button"].loadMore-button {
     display: flex;
     flex-wrap: wrap;
     width: 100%;
-    margin-left: -10px;
 }
 
 .gallery-content>li {
     flex: 0 1 50%;
-    max-width: 370px;
 }
 
 .gallery-content>li a {
@@ -2708,6 +2706,7 @@ input[type="button"].loadMore-button {
 
 
 @media (min-width: 980px) {
+
     .column-articles-ctgs {
         grid-template-columns: repeat(3, 1fr);
     }
@@ -2761,6 +2760,10 @@ input[type="button"].loadMore-button {
     }
     .column-content {
         flex-direction: row;
+    }
+
+    .gallery-content {
+        margin-left: -10px;
     }
     
 }
