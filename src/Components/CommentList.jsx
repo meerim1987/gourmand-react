@@ -82,10 +82,6 @@ export const CommentList = ({ newComment, recipeId }) => {
   // Lazy load of comments with Intersection observer
   const intersectionCallback = async(entries, fn) => {
     if (entries[0].isIntersecting) {   
-        const targetElem = document.getElementById('comments-field');
-        targetElem.scrollIntoView({
-          behavior: 'smooth'
-        });
         await getList();
         fn();    
     }
