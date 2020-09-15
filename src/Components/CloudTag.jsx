@@ -10,7 +10,7 @@ export const CloudTag = () => {
   const { data: ctgInfo } = useFetch(CATEGORIES_INFO);
 
   return (
-    <React.Fragment>
+    <>
       {ctgInfo ? (
         <div className="links-cloud-wrap">
           <h3 className="title">Categories</h3>
@@ -26,6 +26,6 @@ export const CloudTag = () => {
       ) : (
         <div className="loader-container">{<Loader />}</div>
       )}
-    </React.Fragment>
+    </>
   );
 };

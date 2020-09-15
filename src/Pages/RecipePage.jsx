@@ -35,7 +35,7 @@ const RecipePage = (props) => {
       ) : !recipeData || error || recipeData.error ? (
         <div className="error-cont">Recipe not found...</div>
       ) : (
-        <React.Fragment>
+        <>
           <div className="column-content">
             <div className="article-container">
               <article className="post-col-main complete">
@@ -114,7 +114,7 @@ const RecipePage = (props) => {
               </aside>
             </div>
           </div>
-        </React.Fragment>
+        </>
       )}
     </PageFrame>
   );

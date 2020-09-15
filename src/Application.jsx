@@ -1,4 +1,4 @@
-import React, { Suspense, lazy, useReducer } from 'react';
+import React, { Suspense, lazy, useReducer, createContext } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { IndexPage } from './Pages/IndexPage';
 const SignIn = lazy(() => import('./Pages/SignInPage'));
@@ -9,7 +9,7 @@ const SignOut = lazy(() => import('./Components/SignOut'));
 const Categories = lazy(() => import('./Pages/CategoryPage'));
 const AboutInfo = lazy(() => import('./Pages/AboutPage'));
 const ContactPage = lazy(() => import('./Pages/ContactPage'));
-export const AuthContext = React.createContext();
+export const AuthContext = createContext();
 import {reducer} from './utils/reducer';
  
 
@@ -40,11 +40,11 @@ const notifier = (groupByComponent, collapseComponentGroups, displayName, diffs)
   });
 };
 
-// if (process.env.NODE_ENV !== 'production') {
-//     const {whyDidYouUpdate} = require('why-did-you-update');
-//     // whyDidYouUpdate(React, { notifier });
-//     whyDidYouUpdate(React);
-// }
+if (process.env.NODE_ENV !== 'production') {
+    const {whyDidYouUpdate} = require('why-did-you-update');
+    // whyDidYouUpdate(React, { notifier });
+    whyDidYouUpdate(React);
+}
 
 
 export const Application = () => {

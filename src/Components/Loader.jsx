@@ -1,8 +1,7 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, memo } from 'react';
 
 
 // Eggs loader
-
 const initEggs = (wrapClass) => {
   let selectAll = function (s) {
       return document.querySelectorAll(s);
@@ -84,7 +83,7 @@ const initEggs = (wrapClass) => {
 
 let index = 0;
 
-export const Loader = () => {
+export const Loader = memo(() => {
   const wrapClass = `egg_${index++}`;
 
   useEffect(() => {
@@ -149,4 +148,4 @@ export const Loader = () => {
       </div>
     </div>
   );
-};
+});

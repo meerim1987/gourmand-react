@@ -5,7 +5,7 @@ const DEFAULT_AVATAR = 'assets/images/avatar_placeholder.png';
 const MAX_SUMMARY_LENGTH = 82;
 
 export const AuthorField = ({ data }) => (
-  <React.Fragment>
+  <>
     {data && !data.error ? (
       <section className="author-field">
         <h3 className="title">ABOUT ME</h3>
@@ -33,5 +33,5 @@ export const AuthorField = ({ data }) => (
     ) : (
       <div>Author info not available</div>
     )}
-  </React.Fragment>
+  </>
 );

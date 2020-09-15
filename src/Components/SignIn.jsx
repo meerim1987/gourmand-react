@@ -16,7 +16,6 @@ const initFormErrors = {
 };
 
 const SignIn = () => {
-  
   const [fields, setFields] = useState({ ...initForms });
   const [errors, setErrors] = useState({ ...initFormErrors });
   const history = useHistory();

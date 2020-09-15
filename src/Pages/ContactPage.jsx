@@ -64,7 +64,7 @@ const ContactPage = () => {
             <div className="contact-content">
               <form>
                 {!userAuthenticated && (
-                  <React.Fragment>
+                  <>
                     <div className="contact-name">
                       <label>
                         Name
@@ -92,7 +92,7 @@ const ContactPage = () => {
                         {showEmailRegexpError && <div className="password-errors-wrap">This is not valid email!</div>}
                       </label>
                     </div>
-                  </React.Fragment>
+                  </>
                 )}
                 <div className="contact-website">
                   <label>

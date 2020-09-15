@@ -52,10 +52,10 @@ const CategoryPage = (props) => {
           <Loader />
         </div>
       ) : (
-        <React.Fragment>
+        <>
           <div>
             {categoryData && (
-              <React.Fragment>
+              <>
                 <div>
                   <div className="category-description-wrap">
                     <div className="category-innerwrap">
@@ -80,14 +80,14 @@ const CategoryPage = (props) => {
                     ))}
                   </div>
                 </div>
-              </React.Fragment>
+              </>
             )}
           </div>
           <div className="column-content-ctgs">
             {userData.isLoggedIn ? <SubscribeUser /> : <SubscribeNotUser />}
             <CloudTag />
           </div>
-        </React.Fragment>
+        </>
       )}
     </PageFrame>
   );
