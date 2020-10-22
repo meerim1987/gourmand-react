@@ -11,6 +11,7 @@ const AboutInfo = lazy(() => import('./Pages/AboutPage'));
 const ContactPage = lazy(() => import('./Pages/ContactPage'));
 export const AuthContext = createContext();
 import {reducer} from './utils/reducer';
+import { PageNotFound } from './Pages/PageNotFound';
  
 
 // Saving state of the authenticated user on onload
@@ -33,6 +34,7 @@ import {
   SIGN_OUT,
   SIGN_UP,
 } from './constants/routes';
+
 
 const notifier = (groupByComponent, collapseComponentGroups, displayName, diffs) => {
   diffs.forEach(({ name, prev, next, type }) => {
@@ -58,26 +60,27 @@ export const Application = () => {
         dispatch
       }}>
       <Router>
-        <Switch>
-          <Route exact path={'/'} component={IndexPage} />
-          <Suspense
+        <Suspense
             fallback={
               <div>
                 <Loader />
               </div>
             }
           >
-            <Route exact path={ABOUT} component={(props) => <AboutInfo {...props} />} />
-            <Route exact path={CONTACT} component={(props) => <ContactPage {...props} />} />
-            <Route exact path={SIGN_IN} component={(props) => <SignIn {...props} />} />
-            <Route exact path={RECIPE_POST} component={RecipePost} />
-            <Route exact path={RECIPE} component={(props) => <Recipe {...props} />} />
-            <Route exact path={SIGN_UP} component={(props) => <SignUp {...props} />} />
-            <Route exact path={SIGN_OUT} component={(props) => <SignOut {...props} />} />
-            <Route exact path={CATEGORY} component={(props) => <Categories {...props} />} />
-            <Route exact path={CATEGORIES} component={(props) => <Categories {...props} />} />
-          </Suspense>
+        <Switch>
+          <Route exact path={'/'} component={IndexPage} />
+          <Route exact path={ABOUT} component={(props) => <AboutInfo {...props} />} />
+          <Route exact path={CONTACT} component={(props) => <ContactPage {...props} />} />
+          <Route exact path={SIGN_IN} component={(props) => <SignIn {...props} />} />
+          <Route exact path={RECIPE_POST} component={RecipePost} />
+          <Route exact path={RECIPE} component={(props) => <Recipe {...props} />} />
+          <Route exact path={SIGN_UP} component={(props) => <SignUp {...props} />} />
+          <Route exact path={SIGN_OUT} component={(props) => <SignOut {...props} />} />
+          <Route exact path={CATEGORY} component={(props) => <Categories {...props} />} />
+          <Route exact path={CATEGORIES} component={(props) => <Categories {...props} />} />
+          <Route component={PageNotFound} />     
         </Switch>
+        </Suspense>
       </Router>
       </AuthContext.Provider>
   );
