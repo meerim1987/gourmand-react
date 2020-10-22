@@ -11,6 +11,7 @@ import { CloudTag } from '../Components/CloudTag';
 import { useFetch } from '../utils/useFetch';
 import { PARAM_ID, replaceParams, CATEGORY, PARAM_CATEGORY } from '../constants/routes';
 import { RECIPE } from '../constants/url';
+import { HamburgerSvg } from '../static/svg';
 
 const RecipePage = (props) => {
   const [ticked, setTick] = useState([]);
@@ -33,7 +34,12 @@ const RecipePage = (props) => {
           <Loader />
         </div>
       ) : !recipeData || error || recipeData.error ? (
-        <div className="error-cont">Recipe not found...</div>
+        <div className="error-cont">
+           <p>Recipe not found...</p>
+           <div className="main-page-not-found">
+            <HamburgerSvg/>
+           </div>
+        </div>
       ) : (
         <>
           <div className="column-content">
