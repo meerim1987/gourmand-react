@@ -21,7 +21,7 @@ follow the link to **[SIGN UP](https://moboskanova.me/sign-up)** in App.
 
 **Technical features:**
 
-* React 16
+* React 16.8
 * React hooks
 * Custom hooks such as useAuth and useFetch
 * User authentication implemented with Context provider and useReducer hook
