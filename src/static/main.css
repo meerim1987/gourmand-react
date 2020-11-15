@@ -2185,6 +2185,8 @@ html,
 body,
 #app {
     height: 100%;
+    width: auto;
+    overflow-x: hidden;
 }
 
 .page-wrap {
@@ -3034,6 +3036,7 @@ _::-webkit-full-page-media, _:future, :root, .recipe-image {
     }
     .msg-container {
         width: 80%;
+        top: 40%;
     }
     .flip-box-user {
         width: 100%;
