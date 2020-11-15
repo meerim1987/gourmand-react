@@ -14,6 +14,7 @@ export const LOGIN = '/gourmet/login?email=:email&password=:password';
 export const SIGNUP = '/gourmet/sign-up';
 export const ADD_RECIPE = '/recipe/add';
 export const RECIPE_UPLOAD = '/recipe/upload';
+export const SEARCH_RECIPE = '/recipe/search';
 
 export const getUrl = (uri, params = new Map()) => {
   return `${BACKEND_HOST}${replaceParams(uri, params)}`;

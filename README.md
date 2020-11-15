@@ -28,8 +28,9 @@ follow the link to **[SIGN UP](https://moboskanova.me/sign-up)** in App.
 * ES6
 * Functional/Class components
 * React carousel
-* Code splitting with React lazy
+* Optimization implemented with Code splitting (React lazy)
 * Lazy loading for products listing and comments with Intersection observer
+* Debounce optimization for Search input
 * App is totally responsive
 
 

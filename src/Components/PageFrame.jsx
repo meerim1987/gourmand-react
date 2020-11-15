@@ -1,11 +1,23 @@
-import React, { useState, useLayoutEffect, useRef, useContext } from 'react';
+import React, { useState, useLayoutEffect, useRef, useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { MenuItems } from '../constants/data';
 import { FooterItems } from '../constants/data';
 import { AuthContext } from '../Application';
+import { SearchIcon } from '../static/svg';
+import { useFetch } from '../utils/useFetch';
+import { SEARCH_RECIPE } from '../constants/url';
+import { SearchResults } from './SearchResults';
+
 
 export const PageFrame = (props) => {
   let [stickyEnabled, setStickyEnabled] = useState(false);
+  let [searchVal, setSearchVal] = useState("");
+  let [searchRes, setSearchRes] = useState(null);
+  const searchMinLength = 3;
+
+
+  const {data, get} = useFetch(`${SEARCH_RECIPE}/${searchVal}`, true);
+
   const myMenuBar = useRef();
   const myMainNavbarMenu = useRef();
   
@@ -39,6 +51,36 @@ export const PageFrame = (props) => {
     }
   };
 
+  // Debounce optimiz interval
+  const DEBOUNCE_INTVL = 1000;
+
+  // Search recipe logic
+  const handleKeyUp = ({target:{value}}) => {
+    const val = value.trim();
+    setSearchVal(val);
+  }
+
+  // Remove search results on click of search cancel button 
+  const removeSearchResults = () => {
+    setSearchRes(null);
+    setSearchVal('');
+  }
+
+  // Debounce optimization logic for Search 
+  useEffect(() => {
+      setSearchRes(null);
+      if (!searchVal || searchVal.length < searchMinLength) return;
+      const timeOutId = setTimeout(() => get(), DEBOUNCE_INTVL);
+      return () => clearTimeout(timeOutId);
+  }, [searchVal]);
+
+  // Setting search results to state on every change of data
+  useEffect(() => {                                                  
+    setSearchRes(data);
+  }, [data]);
+
+  console.log(data, searchRes, searchVal, 'PPP')
+
   return (
     <div className="page-wrap">
       <div className="inner-container">
@@ -66,6 +108,18 @@ export const PageFrame = (props) => {
               </div>
               <div className="top-social-container">
                 <ul className="top-social">
+                  <li className="search-query-wrapper">
+                      <div class="search-query-content">
+                        <label>
+                          <input ref={element=>(element||{}).onsearch=removeSearchResults} onKeyUp={handleKeyUp} type="search" 
+                            className="search-query" placeholder="Search the recipe" aria-label="Search through site content"/>
+                        </label>
+                      </div>
+                      <button>
+                        <SearchIcon/>
+                      </button>
+                      {searchRes && <SearchResults data={searchRes} searchItem={searchVal}/> }
+                  </li>
                   <li className="zoom-social-icons-list-item">
                     <Link className="zoom-social-icons-list-link" to="/contact">
                       <span title="Contact" className="socicon socicon-mail" />

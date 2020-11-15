@@ -45,8 +45,6 @@ export const HamburgerSvg = () => (
         </svg>
 );
 
-
-
 export const EggsLoader = () => (
     <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
     <defs>
@@ -101,5 +99,17 @@ export const EggsLoader = () => (
     </g>
   </svg>
 );
+
+export const SearchIcon = () => (
+  <svg enableBackground="new 0 0 64 64" height="30px" id="Layer_1" version="1.1" viewBox="0 0 64 64" width="30px" xml="preserve" xmlns="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/1999/xlink">
+    <g>
+      <circle cx="32" cy="25" fill="none" r="16" stroke="#8ca1b4" strokeLinecap="round" strokeLinejoin="round" strokeMiterlimit="10" strokeWidth="2"/>
+      <line fill="none" stroke="#8ca1b4" strokeLinecap="round" strokeLinejoin="round" strokeMiterlimit="10" x1="40.9" x2="38.8" y1="44.1" y2="39.5"/>
+      <line fill="none" stroke="#8ca1b4" strokeLinecap="round" strokeLinejoin="round" strokeMiterlimit="10" strokeWidth="4" x1="40.9" x2="46" y1="44.1" y2="55"/>
+    <path d="M36.2,13.7   c2.7,1,4.9,2.9,6.3,5.3" fill="none" stroke="#8ca1b4" strokeLinecap="round" strokeLinejoin="round" strokeMiterlimit="10"/>
+    </g>
+  </svg>
+);
+
 
 
