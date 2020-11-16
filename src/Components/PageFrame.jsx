@@ -109,7 +109,7 @@ export const PageFrame = (props) => {
               <div className="top-social-container">
                 <ul className="top-social">
                   <li className="search-query-wrapper">
-                      <div class="search-query-content">
+                      <div className="search-query-content">
                         <label>
                           <input ref={element=>(element||{}).onsearch=removeSearchResults} onKeyUp={handleKeyUp} type="search" 
                             className="search-query" placeholder="Search the recipe" aria-label="Search through site content"/>
