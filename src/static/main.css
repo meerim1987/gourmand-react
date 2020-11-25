@@ -2184,9 +2184,7 @@ main {
 html,
 body,
 #app {
-    height: 100%;
     width: auto;
-    overflow-x: hidden;
 }
 
 .page-wrap {
@@ -2751,6 +2749,7 @@ input[type="button"].loadMore-button {
     align-items: center;
 }
 
+
 .search-query-content {
     width: 100%;
 }
@@ -3227,6 +3226,10 @@ _::-webkit-full-page-media, _:future, :root, .recipe-image {
 
     .product-name {
         font-size: 1em;
+    }
+
+    .search-query::-webkit-search-cancel-button {
+        margin-right: 8px;
     }
 
 }
