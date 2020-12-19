@@ -11,6 +11,8 @@ import { useFetch } from '../utils/useFetch';
 import { CATEGORY, PARAM_CATEGORY, replaceParams } from '../constants/routes';
 import { CATEGORY_INFO } from '../constants/url';
 import { AuthContext } from '../Application';
+import { HamburgerSvg } from '../static/svg';
+import { Helmet } from 'react-helmet';
 
 let options = Object.keys(Categories).map((ctg) => ({
   value: ctg,
@@ -46,7 +48,16 @@ const CategoryPage = (props) => {
 
   return (
     <PageFrame>
-      {!validCategory && <div>CATEGORY NOT FOUND</div>}
+      {!validCategory &&
+      <div>
+        <Helmet>
+          <link rel="stylesheet" href="/assets/page_not_found.css" />
+        </Helmet>
+        <p>Category not found...</p>
+        <div className="main-page-not-found">
+          <HamburgerSvg/>
+        </div>
+      </div>}
       {fetching ? (
         <div className="loader-container">
           <Loader />

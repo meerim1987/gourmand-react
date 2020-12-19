@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useFetch } from '../utils/useFetch';
 import { DELETE_TEMP_UPLOAD, getUrl } from '../constants/url';
 import { PARAM_ID } from '../constants/routes';
+import { Helmet } from 'react-helmet';
+
 
 
 // Custom images uploader 
@@ -86,8 +88,11 @@ export const MyUploader = (props) => {
 
   return (
     <div className={btnDisabled ? 'disabled' : ''}>
+      <Helmet>
+        <link rel="stylesheet" href="/assets/files_uploader.css" />
+      </Helmet>
       <div className="upload-btn-wrapper" style={{ display: btnDisabled ? 'none' : 'block' }}>
-        <button style={{ borderColor: `${props.color}` }} className="btn">
+        <button style={{ borderColor: `${props.color}` }} className="btn-upload">
           {props.label}
         </button>
         <input type="file" multiple id="filesInput" name="filesInput" accept="image/*" onChange={handleFiles} />

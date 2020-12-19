@@ -12,6 +12,7 @@ import { useFetch } from '../utils/useFetch';
 import { PARAM_ID, replaceParams, CATEGORY, PARAM_CATEGORY } from '../constants/routes';
 import { RECIPE } from '../constants/url';
 import { HamburgerSvg } from '../static/svg';
+import { Helmet } from 'react-helmet';
 
 const RecipePage = (props) => {
   const [ticked, setTick] = useState([]);
@@ -34,7 +35,11 @@ const RecipePage = (props) => {
           <Loader />
         </div>
       ) : !recipeData || error || recipeData.error ? (
+      
         <div className="error-cont">
+           <Helmet>
+             <link rel="stylesheet" href="/assets/page_not_found.css" />
+           </Helmet>
            <p>Recipe not found...</p>
            <div className="main-page-not-found">
             <HamburgerSvg/>
