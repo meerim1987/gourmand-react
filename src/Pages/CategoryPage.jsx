@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useLayoutEffect } from 'react';
 import { PageFrame } from '../Components/PageFrame';
 import { Loader } from '../Components/Loader';
 import { Categories } from '../constants/data';
@@ -12,7 +12,9 @@ import { CATEGORY, PARAM_CATEGORY, replaceParams } from '../constants/routes';
 import { CATEGORY_INFO } from '../constants/url';
 import { AuthContext } from '../Application';
 import { HamburgerSvg } from '../static/svg';
-import { Helmet } from 'react-helmet';
+import styles from '../static/page_not_found.css';
+ 
+
 
 let options = Object.keys(Categories).map((ctg) => ({
   value: ctg,
@@ -34,6 +36,14 @@ options = options.sort(function (a, b) {
 });
 
 const CategoryPage = (props) => {
+
+  useLayoutEffect(() => {
+    styles.use(); 
+
+    return () => styles.unuse();
+  }, []);
+
+
   const ctgTitle = props.match.params.category ? props.match.params.category : options[0].value;
   const validCategory = Object.keys(Categories).includes(ctgTitle.trim());
 
@@ -49,15 +59,12 @@ const CategoryPage = (props) => {
   return (
     <PageFrame>
       {!validCategory &&
-      <div>
-        <Helmet>
-          <link rel="stylesheet" href="/assets/page_not_found.css" />
-        </Helmet>
-        <p>Category not found...</p>
-        <div className="main-page-not-found">
-          <HamburgerSvg/>
-        </div>
-      </div>}
+        <div>
+          <p>Category not found...</p>
+          <div className="main-page-not-found">
+            <HamburgerSvg/>
+          </div>
+        </div>}
       {fetching ? (
         <div className="loader-container">
           <Loader />

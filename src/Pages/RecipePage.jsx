@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useLayoutEffect } from 'react';
 import { CommentBox } from '../Components/CommentBox';
 import { PageFrame } from '../Components/PageFrame';
 import { Loader } from '../Components/Loader';
@@ -12,12 +12,19 @@ import { useFetch } from '../utils/useFetch';
 import { PARAM_ID, replaceParams, CATEGORY, PARAM_CATEGORY } from '../constants/routes';
 import { RECIPE } from '../constants/url';
 import { HamburgerSvg } from '../static/svg';
-import { Helmet } from 'react-helmet';
+import styles from '../static/page_not_found.css';
+
 
 const RecipePage = (props) => {
   const [ticked, setTick] = useState([]);
   const recipeId = props.match.params.id;
   const { data: recipeData, error, fetching } = useFetch(replaceParams(RECIPE, new Map([[PARAM_ID, recipeId]])));
+
+  useLayoutEffect(() => {
+    styles.use(); 
+
+    return () => styles.unuse();
+  }, []);
 
   useEffect(() => {
     if (!recipeData?.ingredients) return;
@@ -37,9 +44,6 @@ const RecipePage = (props) => {
       ) : !recipeData || error || recipeData.error ? (
       
         <div className="error-cont">
-           <Helmet>
-             <link rel="stylesheet" href="/assets/page_not_found.css" />
-           </Helmet>
            <p>Recipe not found...</p>
            <div className="main-page-not-found">
             <HamburgerSvg/>

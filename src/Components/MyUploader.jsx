@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useLayoutEffect } from 'react';
 import { useFetch } from '../utils/useFetch';
 import { DELETE_TEMP_UPLOAD, getUrl } from '../constants/url';
 import { PARAM_ID } from '../constants/routes';
-import { Helmet } from 'react-helmet';
+import styles from '../static/files_uploader.css';
+
 
 
 
@@ -22,6 +23,12 @@ export const MyUploader = (props) => {
       setBtnDisable(false);
     }
   };
+
+  useLayoutEffect(() => {
+    styles.use(); 
+
+    return () => styles.unuse();
+  }, []);
 
   useEffect(() => {
     if (props.makeFilesEmpty) {
@@ -88,9 +95,6 @@ export const MyUploader = (props) => {
 
   return (
     <div className={btnDisabled ? 'disabled' : ''}>
-      <Helmet>
-        <link rel="stylesheet" href="/assets/files_uploader.css" />
-      </Helmet>
       <div className="upload-btn-wrapper" style={{ display: btnDisabled ? 'none' : 'block' }}>
         <button style={{ borderColor: `${props.color}` }} className="btn-upload">
           {props.label}

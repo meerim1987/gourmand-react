@@ -1,18 +1,20 @@
-import React, { memo } from 'react';
+import React, { memo, useLayoutEffect } from 'react';
 import { PageFrame } from '../Components/PageFrame';
 import { HamburgerSvg } from '../static/svg';
-import { Helmet } from 'react-helmet';
+import styles from '../static/page_not_found.css';
 
+export const PageNotFound = memo(() => {
+    
+    useLayoutEffect(() => {
+        styles.use(); 
 
-
-export const PageNotFound = memo(() => (
-    <PageFrame>
-        <Helmet>
-            <link rel="stylesheet" href="/assets/page_not_found.css" />
-        </Helmet>
-        <p>Page not found...</p>
-        <div className="main-page-not-found">
-            <HamburgerSvg/>
-        </div>
-    </PageFrame>
-));
+        return () => styles.unuse();
+    }, []);
+    
+    return (<PageFrame>
+                <p>Page not found...</p>
+                <div className="main-page-not-found">
+                    <HamburgerSvg/>
+                </div>
+            </PageFrame>)
+});
