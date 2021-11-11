@@ -7,16 +7,6 @@ Every recipe has a lightbox of the images so that user can see them in close.
 On homepage there is carousel of some most popular recipes, also it has recipes sorted by categories for better UX. Further homepage has the latest recipe posted, followed by the random ones.    
 User has a chance to get subscribed and receive recipes to his/her email (behaviour is simulated).  
 
-To be able to post a recipe and to comment on other recipes you can use **credentials of some users** provided: 
-
-1.	Melania, pass: melaniaKl!2
-2.	Anna, pass: anna_loveL!2
-3.	Laetitia, pass: laetitia_farm123!K
-
-**OR** 
-follow the link to **[SIGN UP](https://moboskanova.me/sign-up)** in App. 
-
-
 **Technical features:**
 
 * React 16.8
